@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class YallahMApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(YallahMApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(YallahMApplication.class, args);
+    }
 
 }
