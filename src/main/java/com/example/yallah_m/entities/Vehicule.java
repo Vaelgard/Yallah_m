@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @AllArgsConstructor
@@ -17,7 +16,7 @@ public class Vehicule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String marque;
-    @UniqueElements
+    @Column(unique = true)
     private String matricule;
     private String type;
     @ManyToOne(fetch =  FetchType.EAGER)

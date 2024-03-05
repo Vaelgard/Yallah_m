@@ -1,9 +1,6 @@
 package com.example.yallah_m.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,11 +17,11 @@ import java.util.List;
 public class Offres {
     @Id
     private Integer id;
-    private String dest_depart;
-    private String dest_arriv;
+    @OneToOne(fetch = FetchType.LAZY)
+    private Villes ville_depart;
+    @OneToOne(fetch = FetchType.LAZY)
+    private Villes ville_arriv;
     private Date heure_depart;
     private Date heure_arriv;
     private Double prix;
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<Villes> villes;
 }
