@@ -20,7 +20,6 @@ import java.util.List;
 public class AdminController {
     @Autowired
     AdminService adminService;
-
     @GetMapping("/dashbordAdmin")
     public String dashBoard(){
         return "DashbordAdmin";
@@ -48,25 +47,25 @@ public class AdminController {
         model.addAttribute("clientM",client);
         return "MAJ";
     }
-    @GetMapping("/dashbordAdmin/majClient")
-    public void saveClient(Client client){
+    @PostMapping("/dashbordAdmin/saveClient")
+    public void saveClient(@Valid Client client){
         adminService.majClient(client);
     }
     @GetMapping("/dashbordAdmin/deleteC")
     public void deleteClient(String id){
         adminService.supprimerClient(id);
     }
-    @GetMapping("/dashbordAdmin/majClient")
+    @GetMapping("/dashbordAdmin/majDriver")
     public String majDriver(Model model,String id){
         Driver driver=adminService.getDriverById(id);
         model.addAttribute("driverM",driver);
         return "MAJ";
     }
-    @GetMapping("/dashbordAdmin/majClient")
-    public void saveDriver(Driver driver){
+    @PostMapping("/dashbordAdmin/saveDriver")
+    public void saveDriver(@Valid Driver driver){
         adminService.majDriver(driver);
     }
-    @GetMapping("/dashbordAdmin/deleteC")
+    @GetMapping("/dashbordAdmin/deleteD")
     public void deleteDriver(String id){
         adminService.supprimerDriver(id);
     }
