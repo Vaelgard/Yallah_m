@@ -47,7 +47,7 @@ public class AdminController {
         model.addAttribute("clientM",client);
         return "MAJ";
     }
-    @PostMapping("/dashbordAdmin/majClient")
+    @PostMapping("/dashbordAdmin/saveClient")
     public void saveClient(@Valid Client client){
         adminService.majClient(client);
     }
@@ -55,17 +55,17 @@ public class AdminController {
     public void deleteClient(String id){
         adminService.supprimerClient(id);
     }
-    @GetMapping("/dashbordAdmin/majClient")
+    @GetMapping("/dashbordAdmin/majDriver")
     public String majDriver(Model model,String id){
         Driver driver=adminService.getDriverById(id);
         model.addAttribute("driverM",driver);
         return "MAJ";
     }
-    @PostMapping("/dashbordAdmin/majClient")
+    @PostMapping("/dashbordAdmin/saveDriver")
     public void saveDriver(@Valid Driver driver){
         adminService.majDriver(driver);
     }
-    @GetMapping("/dashbordAdmin/deleteC")
+    @GetMapping("/dashbordAdmin/deleteD")
     public void deleteDriver(String id){
         adminService.supprimerDriver(id);
     }
