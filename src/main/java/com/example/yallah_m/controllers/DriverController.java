@@ -29,9 +29,9 @@ public class DriverController {
         userService.saveUser(driver);
     }
     @GetMapping("/deleteD")
-    public void deleteDriver(String cin){
+    public void deleteDriver(Integer id){
 
-        userService.deleteUser(cin);
+        userService.deleteUser(id);
     }
     @GetMapping("/listUser")
     public List<User> drivers(){

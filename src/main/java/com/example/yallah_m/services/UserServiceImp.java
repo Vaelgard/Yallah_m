@@ -2,6 +2,7 @@ package com.example.yallah_m.services;
 
 import com.example.yallah_m.entities.User;
 import com.example.yallah_m.repositories.UserRepository;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public void deleteUser(String cin) {
-        userRepository.deleteById(cin);
+    public void deleteUser(Integer id) {
+        userRepository.deleteById(id);
     }
 }

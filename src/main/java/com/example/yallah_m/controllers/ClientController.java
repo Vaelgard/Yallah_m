@@ -24,8 +24,8 @@ public class ClientController {
         userService.saveUser(user);
     }
     @GetMapping("/deleteUser")
-    public void deleteClient(String cin){
-        userService.deleteUser(cin);
+    public void deleteClient(Integer id){
+        userService.deleteUser(id);
     }
 
 }
