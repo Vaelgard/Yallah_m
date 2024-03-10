@@ -3,10 +3,12 @@ package com.example.yallah_m.services;
 import com.example.yallah_m.entities.User;
 import com.example.yallah_m.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @AllArgsConstructor
+@Service
 public class UserServiceImp implements UserService{
     private UserRepository userRepository;
 

@@ -20,5 +20,5 @@ public class Vehicule {
     private String matricule;
     private String type;
     @ManyToOne(fetch =  FetchType.EAGER)
-    private Driver driver;
+    private User driver;
 }

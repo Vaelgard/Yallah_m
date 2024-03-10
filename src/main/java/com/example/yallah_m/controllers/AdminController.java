@@ -5,6 +5,7 @@ import com.example.yallah_m.services.OffresService;
 import com.example.yallah_m.services.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +14,13 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@AllArgsConstructor
 @RequestMapping("/dashbordAdmin")
 @PreAuthorize("hasAuthority('ADMIN')")
 public class AdminController {
-
-    UserService userService;
-    OffresService offresService;
-    @GetMapping
+    @Autowired
+    private UserService userService;
+    private OffresService offresService;
+    @GetMapping("/liste")
     public List<User> users(){
         return userService.getUsers();
     }
@@ -30,10 +30,11 @@ public class AdminController {
         model.addAttribute("clientM",user);
         return "MAJ";
     }
-    @GetMapping
+    @GetMapping("/save")
     public void save(@Valid User user){
         userService.saveUser(user);
     }
+
     @GetMapping("/deleteUser")
     public void deleteClient(String cin){
         userService.deleteUser(cin);

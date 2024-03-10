@@ -17,9 +17,9 @@ public class Rating {
     private Integer id;
     private String comment;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Client client;
+    private User client;
     @OneToOne(fetch = FetchType.LAZY)
     private Offres offres;
     @ManyToOne(fetch = FetchType.LAZY)
-    private Driver driver;
+    private User driver;
 }

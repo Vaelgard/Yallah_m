@@ -18,5 +18,5 @@ public class Voyage {
     @OneToOne(fetch = FetchType.LAZY)
     private Offres offres;
     @OneToOne(fetch = FetchType.LAZY)
-    private Client client;
+    private User client;
 }
