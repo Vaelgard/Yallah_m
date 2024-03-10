@@ -1,24 +1,21 @@
-package com.example.yallah_m.entities;
+package com.example.yallah_m.auth;
 
-import jakarta.persistence.*;
+import com.example.yallah_m.entities.Role;
+import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Client {
-    @Id
-    private String CIN;
+public class RegisterRequest {
     private String nom;
     private String prenom;
-    private int age;
-    @Column(unique = true)
     private String email;
     private String password;
-    private String role;
 }

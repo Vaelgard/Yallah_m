@@ -1,40 +1,31 @@
 package com.example.yallah_m.controllers;
 
-import com.example.yallah_m.entities.Client;
-import com.example.yallah_m.services.AdminService;
-import com.example.yallah_m.services.ClientService;
+import com.example.yallah_m.entities.User;
+import com.example.yallah_m.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/user")
 public class ClientController {
     @Autowired
-    private ClientService clientService;
-    @GetMapping("/listClient")
-    public List<Client> clients(){
-        return clientService.getClients();
-    }
-    @GetMapping("/majClient")
-    public String majClient(Model model, String id){
-        Client client=clientService.getClientById(id);
-        model.addAttribute("clientM",client);
+    private UserService userService;
+    @GetMapping("/majUser")
+    public String majClient(Model model, String cin){
+        User user=userService.getUserById(cin);
+        model.addAttribute("clientM",user);
         return "MAJ";
     }
-    @PostMapping("/saveClient")
-    public void saveClient(@Valid Client client){
-        clientService.saveClient(client);
+    @PostMapping("/saveUser")
+    public void saveClient(@Valid User user){
+        userService.saveUser(user);
     }
-    @GetMapping("/deleteC")
-    public void deleteClient(String id){
-        clientService.supprimerClient(id);
+    @GetMapping("/deleteUser")
+    public void deleteClient(String cin){
+        userService.deleteUser(cin);
     }
 
 }

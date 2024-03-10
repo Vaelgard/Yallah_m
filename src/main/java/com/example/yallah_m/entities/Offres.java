@@ -18,7 +18,7 @@ public class Offres {
     @Id
     private Integer id;
     @OneToOne(fetch = FetchType.LAZY)
-    private Driver driver;
+    private User driver;
     @OneToOne(fetch = FetchType.LAZY)
     private Villes ville_depart;
     @OneToOne(fetch = FetchType.LAZY)

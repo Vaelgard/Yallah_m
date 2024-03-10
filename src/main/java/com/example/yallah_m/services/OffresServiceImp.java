@@ -1,10 +1,8 @@
 package com.example.yallah_m.services;
 
-import com.example.yallah_m.entities.Client;
 import com.example.yallah_m.entities.Offres;
 import com.example.yallah_m.repositories.OffresRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
