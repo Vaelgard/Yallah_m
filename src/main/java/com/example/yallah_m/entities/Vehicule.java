@@ -19,6 +19,6 @@ public class Vehicule {
     @Column(unique = true)
     private String matricule;
     private String type;
-    @ManyToOne(fetch =  FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User driver;
 }
