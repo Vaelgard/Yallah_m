@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/dashbordAdmin")
+@RequestMapping("/api/v1/dashbordAdmin")
 @PreAuthorize("hasAuthority('ADMIN')")
 public class AdminController {
     @Autowired
