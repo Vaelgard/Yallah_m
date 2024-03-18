@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @PreAuthorize("hasAuthority('DRIVER')")
-@RequestMapping("Driver")
+@RequestMapping("/api/v1/Driver")
 public class DriverController {
     @Autowired
     private UserService userService;

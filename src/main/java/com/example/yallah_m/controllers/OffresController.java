@@ -6,35 +6,33 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin
+@RequestMapping("/api/v1/offres")
 @PreAuthorize("hasAuthority('ADMIN','DRIVER')")
 public class OffresController {
     @Autowired
     private OffresService offresService;
-    @GetMapping("/listoffres")
+    @GetMapping("/liste")
     public List<Offres> offres(){
         return offresService.listOffres();
     }
-    @PostMapping("/ajouteroffres")
+    @PostMapping("/ajouter")
     public String ajouteroffres(@Valid Offres offres){
         offresService.ajouterOffres(offres);
         return "Offres Ajouter";
     }
-    @GetMapping("/majDriver")
-    public String majDriver(Model model, Integer id){
+    @GetMapping("/maj")
+    public String majOffres(Model model, Integer id){
         Offres offres=offresService.getOffreById(id);
         model.addAttribute("offresM",offres);
         return "MAJ";
     }
-    @GetMapping("/suppoffres")
+    @GetMapping("/supp")
     public void suppOffres(Integer id){
         offresService.supprimerOffres(id);
     }
